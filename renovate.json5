@@ -56,7 +56,7 @@
       "extractVersionTemplate": "^camunda-platform-8.10-(?<version>\\S+)$",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "camunda/camunda-platform-helm",
-      //"versioningTemplate": "regex:^camunda-platform-8.10-(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))(-alpha(?<prerelease>.*))?$",
+      "versioningTemplate": "regex:(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))(-alpha(?<prerelease>.*))?$",
     },
   ],
 
