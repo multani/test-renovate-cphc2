@@ -60,8 +60,8 @@
       "ignoreUnstable": false,
 
       "commitMessageTopic": "camunda-platform Helm Chart",
-      "groupName": "camunda-platform Helm Chart",
-      "groupSlug": "load-test-camunda-platform-chart",
+      //"groupName": "camunda-platform Helm Chart",
+      //"groupSlug": "load-test-camunda-platform-chart",
     },
   ],
 }
