@@ -58,6 +58,8 @@
       "matchDepNames": ["camunda/camunda-platform-helm"],
       "matchDatasources": ["github-tags"],
       "ignoreUnstable": false,
+
+      "commitMessagePrefix": "chore: load-test: update camunda-platform Helm Chart"
     },
   ],
 }
