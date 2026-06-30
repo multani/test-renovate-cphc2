@@ -1,0 +1,5 @@
+zeebe:
+  image:
+    registry: docker.io
+    repository: camunda/zeebe
+    tag: "8.7.33"
