@@ -2,90 +2,45 @@
   "extends": ["config:recommended"],
   "prConcurrentLimit": 0,
   "customManagers": [
-    //{
-    //  "managerFilePatterns": ["*/install.sh"],
-    //  "customType": "regex",
-    //  "matchStrings": [
-    //    "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sgit_tag=\"(?<currentValue>[^\"]+)\"",
-    //  ],
-    //  "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-    //},
-
     {
       "customType": "regex",
       "managerFilePatterns": ["*/install.sh"],
       "matchStrings": [
-        //"renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) version=(?<parentVersion>.*?)\\shelm_chart_version=\"(?<currentValue>[^\"]+)\"",
         "renovate: version=(?<parentVersion>.*?)\\s+helm_chart_version=\"(?<currentValue>[^\"]+)\"",
       ],
-
       "extractVersionTemplate": "^{{{parentVersion}}}-(?<version>\\S+)$",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "camunda/camunda-platform-helm",
       "versioningTemplate": "regex:(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))(-alpha(?<prerelease>.*))?$",
     },
 
-    //{
-    //  "customType": "regex",
-    //  "managerFilePatterns": ["8.9*/install.sh"],
-    //  "matchStrings": ["helm_chart_version=\"(?<currentValue>\\S+)\""],
+    {                                  
+      "description": "Keep release load tests up-to-date",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "*/values.yaml",
+      ],
+      "matchStrings": [
+        "registry: (?<registry>\\S+)\\s+repository: (?<depName>\\S+)\\s+tag: \"(?<currentValue>\\S+)\"",
+      ],                                     
+      "depNameTemplate": "camunda/camunda",  
+      "datasourceTemplate": "github-releases",                                                                                                                                    
+        //"allowedVersions": "<= 8.7"
+    },
 
-    //  "extractVersionTemplate": "^camunda-platform-8.9-(?<version>\\S+)$",
-    //  "datasourceTemplate": "github-tags",
-    //  "depNameTemplate": "camunda/camunda-platform-helm",
-    //},
-
-    //{
-    //  "customType": "regex",
-    //  "managerFilePatterns": ["8.8*/install.sh"],
-    //  "matchStrings": ["helm_chart_version=\"(?<currentValue>\\S+)\""],
-
-    //  "extractVersionTemplate": "^camunda-platform-8.8-(?<version>\\S+)$",
-    //  "datasourceTemplate": "github-tags",
-    //  "depNameTemplate": "camunda/camunda-platform-helm",
-    //},
-
-    //{
-    //  "customType": "regex",
-    //  "managerFilePatterns": ["8.7*/install.sh"],
-    //  "matchStrings": ["helm_chart_version=\"(?<currentValue>\\S+)\""],
-
-    //  "extractVersionTemplate": "^camunda-platform-8.7-(?<version>\\S+)$",
-    //  "datasourceTemplate": "github-tags",
-    //  "depNameTemplate": "camunda/camunda-platform-helm",
-    //},
-
-    //{
-    //  "customType": "regex",
-    //  "managerFilePatterns": ["main/install.sh"],
-    //  "matchStrings": ["helm_chart_version=\"(?<currentValue>\\S+)\""],
-
-    //  "extractVersionTemplate": "^camunda-platform-8.10-(?<version>\\S+)$",
-    //  "datasourceTemplate": "github-tags",
-    //  "depNameTemplate": "camunda/camunda-platform-helm",
-    //  "versioningTemplate": "regex:(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))(-alpha(?<prerelease>.*))?$",
-    //},
   ],
 
   "packageRules": [
     {
       "matchDepNames": ["camunda/camunda-platform-helm"],
       "matchDatasources": ["github-tags"],
-
       "commitMessageTopic": "camunda-platform Helm Chart",
-      //"groupName": "camunda-platform Helm Chart",
-      //"groupSlug": "load-test-camunda-platform-chart",
     },
     {
       "matchDepNames": ["camunda/camunda-platform-helm"],
       "matchDatasources": ["github-tags"],
-      // Allow alphas only on main
       "matchFileNames": ["main/*"],
       "ignoreUnstable": false,
-
-      //"commitMessageTopic": "camunda-platform Helm Chart",
-      //"groupName": "camunda-platform Helm Chart",
-      //"groupSlug": "load-test-camunda-platform-chart",
     },
   ],
 }
