@@ -1,0 +1,10 @@
+apiVersion: v2
+name: test
+description: test
+type: application
+version: "0.1.0"
+
+dependencies:
+  - name: camunda-load-tests
+    version: "0.1.11"
+    repository: "https://camunda.github.io/camunda-load-tests-helm/"
