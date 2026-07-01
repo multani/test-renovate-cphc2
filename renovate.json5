@@ -2,6 +2,12 @@
   "extends": ["config:recommended"],
   "prConcurrentLimit": 0,
 
+  "helm-values": {
+    "managerFilePatterns": [
+      "*/value*.yaml",
+    ],
+  },
+
   "customManagers": [
     {
       "customType": "regex",
@@ -28,6 +34,16 @@
       "matchFileNames": ["main/*"],
       "ignoreUnstable": false,
     },
+
+    {
+      "matchPackageNames": [
+        "docker.io/camunda/zeebe",
+        "docker.io/camunda/camunda",
+      ],
+      "matchFileNames": [
+        "*/values*.yaml",
+      ],
+      "allowedVersions": "<= {{{ major}}}.{{{minor}}}",
+    },
   ],
 }
-

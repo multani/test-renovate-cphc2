@@ -1,0 +1,5 @@
+orchestration:
+  image:
+    registry: docker.io
+    repository: camunda/camunda
+    tag: "8.8.28"
