@@ -1,6 +1,6 @@
 dependencies:
 - name: camunda-load-tests
   repository: https://camunda.github.io/camunda-load-tests-helm/
-  version: 0.1.11
-digest: sha256:f9bb30ec432d69ca7ac551e73888b8c6dccc337718a27794aa3158c713709928
-generated: "2026-07-01T09:35:41.11247855+02:00"
+  version: 0.1.12
+digest: sha256:3cc87f0f1759a3e0357538ed4f122c9d64d3ee53f6148cb9c5b2daaff93532ea
+generated: "2026-08-01T12:03:46.143085648Z"

@@ -6,5 +6,5 @@ version: "0.1.0"
 
 dependencies:
   - name: camunda-load-tests
-    version: "0.1.11"
+    version: "0.1.12"
     repository: "https://camunda.github.io/camunda-load-tests-helm/"
