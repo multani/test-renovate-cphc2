@@ -5,4 +5,4 @@ IFS=$'\n\t'
 
 
 # renovate: version=camunda-platform-8.8
-helm_chart_version="13.7.1"
+helm_chart_version="13.13.0"
