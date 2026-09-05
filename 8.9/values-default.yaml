@@ -2,4 +2,4 @@ orchestration:
   image:
     registry: docker.io
     repository: camunda/camunda
-    tag: "8.9.9"
+    tag: "8.9.19"
